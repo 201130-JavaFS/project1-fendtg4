@@ -19,7 +19,7 @@ public class LoginController {
 	private static final Logger log = LogManager.getLogger(LoginController.class);
 	private ObjectMapper om = new ObjectMapper();
 	private LoginService ls = new LoginService();
-
+	
 	public void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		if (req.getMethod().equals("POST")) {
 			BufferedReader reader = req.getReader();

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.Reimbursement;
+import com.revature.models.Ticket;
 import com.revature.utils.ConnectionUtil;
 
 public class ManagerDAOImpl implements ManagerDAO {
@@ -39,6 +40,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 			);
 				reimbursementList.add(r);
 			}
+			
 			return reimbursementList;
 		
 		} catch (SQLException e) {

@@ -1,4 +1,4 @@
-package com.revature.services;
+package com.revature.services.test;
 
 import java.util.List;
 
@@ -10,9 +10,8 @@ import com.revature.models.Ticket;
 import com.revature.repos.EmployeeDAO;
 import com.revature.repos.EmployeeDAOImpl;
 
-public class EmployeeService {
+public class EmployeeServiceTest {
 	
-	private static final Logger log = LogManager.getLogger(EmployeeService.class);
 	private EmployeeDAO eDAO = new EmployeeDAOImpl();
 	
 	public boolean request(String username, String description, double amount, String type) {
