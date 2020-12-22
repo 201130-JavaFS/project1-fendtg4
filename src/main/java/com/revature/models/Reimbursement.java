@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class Reimbursement {
 
-	private int authorId;
+	private int statusId;
 	private String author;
 	//concatenate first and last name from inner join for this
 	private Timestamp submitDate;
@@ -12,10 +12,10 @@ public class Reimbursement {
 	private String description;
 	private String status;
 	
-	public Reimbursement(int authorId, String author, Timestamp submitDate, double amount, String description,
+	public Reimbursement(int statusId, String author, Timestamp submitDate, double amount, String description,
 			String status) {
 		super();
-		this.authorId = authorId;
+		this.statusId = statusId;
 		this.author = author;
 		this.submitDate = submitDate;
 		this.amount = amount;
@@ -36,12 +36,12 @@ public class Reimbursement {
 		super();
 	}
 
-	public int getAuthorId() {
-		return authorId;
+	public int getStatusId() {
+		return statusId;
 	}
 
-	public void setAuthorId(int authorId) {
-		this.authorId = authorId;
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	public String getAuthor() {
@@ -92,7 +92,7 @@ public class Reimbursement {
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + authorId;
+		result = prime * result + statusId;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((submitDate == null) ? 0 : submitDate.hashCode());
@@ -115,7 +115,7 @@ public class Reimbursement {
 				return false;
 		} else if (!author.equals(other.author))
 			return false;
-		if (authorId != other.authorId)
+		if (statusId != other.statusId)
 			return false;
 		if (description == null) {
 			if (other.description != null)
@@ -137,7 +137,7 @@ public class Reimbursement {
 
 	@Override
 	public String toString() {
-		return "Reimbursement [authorId=" + authorId + ", author=" + author + ", submitDate=" + submitDate + ", amount="
+		return "Reimbursement [statusId=" + statusId + ", author=" + author + ", submitDate=" + submitDate + ", amount="
 				+ amount + ", description=" + description + ", status=" + status + "]";
 	}
 

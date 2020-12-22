@@ -29,8 +29,6 @@ public class EmployeeService {
 			}
 		
 		
-		//when doing JUnit tests, use different database
-		
 	}
 		else {
 			return false;

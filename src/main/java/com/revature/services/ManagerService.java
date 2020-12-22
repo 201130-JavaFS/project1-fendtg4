@@ -20,4 +20,26 @@ public class ManagerService {
 		List<Reimbursement> reimbursementList = mDAO.getAllReimbursements();
 		return reimbursementList;
 	}
+
+	public boolean changeStatus(int statusId, String status, String username) {
+		
+		if (mDAO.changeStatus(statusId, status)) {
+			int managerId = mDAO.getManagerId(username);
+			mDAO.updateResolver(statusId, managerId);
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+
+	public List<Reimbursement> getPendingReimbursements() {
+		
+		List<Reimbursement> pendingList = mDAO.getPendingReimbursements();
+		return pendingList;
+	}
 }
+
+
+

@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.ManagerDTO;
 import com.revature.models.Reimbursement;
+import com.revature.models.StatusDTO;
 import com.revature.services.ManagerService;
 
 public class ManagerController {
@@ -58,4 +59,80 @@ public class ManagerController {
 		}
 	}
 
+	public void changeStatus(HttpServletRequest req, HttpServletResponse res) throws IOException  {
+	
+		if (req.getMethod().equals("POST")) {
+			BufferedReader reader = req.getReader();
+
+			StringBuilder sb = new StringBuilder();
+
+			String line = reader.readLine();
+			while (line != null) {
+				sb.append(line);
+				line = reader.readLine();
+			}
+
+			String body = new String(sb);
+			
+			StatusDTO sDTO = om.readValue(body, StatusDTO.class);
+			
+			if (ms.changeStatus(sDTO.statusId, sDTO.status, sDTO.username)) {
+				
+				HttpSession ses = req.getSession();
+				ses.setAttribute("requestSent", true);
+				String json = om.writeValueAsString("Status Changed!");
+				res.getWriter().print(json);
+				res.setStatus(202);
+				
+			}
+			else {
+				HttpSession ses = req.getSession();
+				ses.setAttribute("requestSent", true);
+				String json = om.writeValueAsString("ID not found!");
+				res.getWriter().print(json);
+				res.setStatus(204);
+			}
+			
+			
+		}
+	}
+
+	public void getPending(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
+		if (req.getMethod().equals("POST")) {
+			BufferedReader reader = req.getReader();
+
+			StringBuilder sb = new StringBuilder();
+
+			String line = reader.readLine();
+			while (line != null) {
+				sb.append(line);
+				line = reader.readLine();
+			}
+
+			String body = new String(sb);
+			
+			
+			ManagerDTO mDTO = om.readValue(body, ManagerDTO.class);
+			
+			List<Reimbursement> pendingList = ms.getPendingReimbursements();
+			
+			if (pendingList.size()>0) {
+				HttpSession ses = req.getSession();
+				ses.setAttribute("requestSent", true);
+				String json = om.writeValueAsString(pendingList);
+				res.getWriter().print(json);
+				res.setStatus(202);
+			}
+			else {
+				HttpSession ses = req.getSession();
+				ses.setAttribute("requestSent", true);
+				String json = om.writeValueAsString("There were no reimbursements");
+				res.getWriter().print(json);
+				res.setStatus(204);
+			}
+		}
+	
+		
+	}
 }

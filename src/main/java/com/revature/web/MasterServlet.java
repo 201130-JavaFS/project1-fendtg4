@@ -31,8 +31,6 @@ public class MasterServlet extends HttpServlet {
 		
 		final String URI = req.getRequestURI().replace("/ReimbursementApplication/", "");
 		
-		log.debug(URI);
-
 		switch (URI) {
 		
 		case "login":
@@ -48,6 +46,13 @@ public class MasterServlet extends HttpServlet {
 			break;
 		case "reimbursements":
 			mc.viewAll(req,res);
+			break;
+		
+		case "statusChange":
+			mc.changeStatus(req,res);
+			break;
+		case "pending":
+			mc.getPending(req,res);
 			break;
 		}
 	}

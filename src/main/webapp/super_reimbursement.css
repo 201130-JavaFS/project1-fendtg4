@@ -1,3 +1,128 @@
-#employeeHeader {
-    margin-top:1%;
+body {
+    background-color:lightblue;
+}
+
+#login_form {
+    margin-top:10%;
+    
+}
+
+#login_form input {
+    display:block; 
+    margin: 0 auto;
+}
+
+#login_form button {
+    display:block;
+    margin: 0 auto;
+    width:33%;
+}
+#employee_header {
+    margin-top:-5%;
+}
+
+#employee_buttons {
+    margin-top:10%;
+}
+
+#employee_buttons button {
+    margin-left:15%;
+}
+
+#request_header {
+    text-align:center;
+    margin-top:-10%;
+}
+
+#request_form {
+    text-align:center;
+}
+
+#lodging, #travel, #food, #other {
+    margin-left:0.5%;
+}
+
+#label_description, #reimb_description {
+    margin-top:2%;
+}
+
+#reimb_description, #request_amount {
+    margin-left:0.5%;
+}
+#main_header {
+    margin-top: 2%;
+}
+
+
+.red {
+    color:red;
+}
+
+#sent_header {
+    text-align:center;
+    margin-top:-5%;
+    
+}
+#ticket_table, #reimbursement_table {
+    margin-left:5%;
+    width:90%;
+}
+
+#go_back_button {
+    display:block;
+    margin: 0 auto;
+    margin-top:5%;
+}
+
+#manager_header {
+    margin-top:-5%;
+}
+
+#reimbursement_button, #manager_log_out_button {
+    margin-top:10%;
+    margin-left:25%;
+}
+
+#pending_button {
+    display:block;
+    margin: 0 auto;
+    margin-top:-5%;
+    margin-bottom:5%;
+}
+
+#status_header {
+    text-align:center;
+    margin-bottom:5%;
+}
+
+#status_form {
+    text-align:center;
+    margin-top:5%;
+}
+
+#id_input, #approved, #denied {
+    margin-left:0.5%;
+}
+
+#approved {
+    margin-right:0.5%;
+}
+
+#pending_table {
+    width:90%;
+    margin-left:5%;
+    margin-top:5%;
+}
+
+#go_back_to_all_button {
+    display:block;
+    margin: 0 auto;
+    margin-top:5%;
+    
+}
+
+#manager_log_out_button2 {
+    position:absolute;
+    top:0;
+    right:0;
 }
