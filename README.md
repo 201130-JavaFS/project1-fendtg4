@@ -1,4 +1,4 @@
-# Pokebook
+# Employee Reimbursement System
 ## Project Description
 A reimbursement system for a company's employees. Employees can request
 reimbursements and managers can approve or deny those requests.
